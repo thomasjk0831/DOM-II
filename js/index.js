@@ -9,6 +9,7 @@ links.forEach( (item) => {
     item.addEventListener('mouseover', (event) => {
         item.style.backgroundColor = "black";
         item.style.color = "white"
+        
       })
 })
 
@@ -78,12 +79,24 @@ p.forEach((item)=>{
 
 //9)mousedown
 //executes no matter where the pointer is after releasing
+const destination = document.querySelectorAll('.destination')
+destination.forEach( (item)=> {
+    item.addEventListener('mousedown', (event)=> {
+        
+        item.style.backgroundColor="black"
+        
+    })
+    
+})
+
 const btn = document.querySelectorAll('.btn')
 btn.forEach( (item)=> {
     item.addEventListener('mousedown', (event)=> {
         alert("You signed up")
         item.style.backgroundColor="black"
         item.textContent = "Thank You!"
+        //prevent propagation up the dom
+        event.stopPropagation()
     })
     
 })
@@ -99,7 +112,13 @@ document.addEventListener('keyup', (event)=> {
     containerHome.style.backgroundColor = "#FEBA51"
 })
 
-
+//prevent default behavior of links
+links.forEach( (item) => {
+    item.addEventListener('click', (event) => {
+        event.preventDefault()
+        
+      })
+})
 
 
 
